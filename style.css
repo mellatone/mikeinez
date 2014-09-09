@@ -1,0 +1,99 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  border-top: 8px #F29A6A solid;
+  overflow: hidden;
+  color: #2f3849;
+}
+
+.app {
+  height: 100%;
+  background: url(http://subtlepatterns.com/patterns/lightpaperfibers.png);
+  font-family: 'Open Sans';
+}
+
+#main {
+  overflow: hidden;
+  height: 100%;
+  /*background: url(http://ffden-2.phys.uaf.edu/webproj/212_spring_2014/Grant_Cummings/Grant_Cummings212/3297949680_f7f64e11f7_o.jpg); */
+  background: url(http://images.wisegeek.com/burlap-fabric.jpg);
+  background-attachment: fixed;
+  box-shadow: 15px -5px 10px -12px black inset;
+  position: relative;
+}
+
+#side {
+  width: 38%;
+  display: inline-block;
+  max-width: 240px;
+  float: left;
+  height: 100%;
+  background: rgba(255, 216, 141, .25);
+  padding: 0 3% 3%;
+  /*box-shadow: 0px 15px 15px 5px black;*/
+  font-size: 12px;
+}
+
+img {
+  max-width: 100%;
+}
+
+#portrait {
+  /*max-width: 88%;*/
+  border-radius: 0 0;
+  display: block;
+  margin: 8% auto 5%;
+}
+
+#bow {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  max-width: 200px; 
+}
+
+#wrap {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  bottom: 5%;
+  right: 5%;
+  background: rgba(255, 216, 141, .25) url(http://subtlepatterns.com/patterns/lightpaperfibers.png);
+  padding: 5%;
+}
+
+input, textarea {
+  font-family: 'Open Sans';
+  border: none;
+  font-size: 18px;
+}
+
+.confirm {
+  background: #C56357;
+  font-family: 'Open Sans';
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Cinzel';
+  color: #F29A6A;
+  font-size: 36px;
+  margin: 0;
+}
+
+header {
+  font-family: 'Cinzel';
+  font-size: 18px;
+  display: block;
+  color: #2f3849;
+  font-weight: bold;
+}

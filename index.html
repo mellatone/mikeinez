@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+  <script src="http://builds.emberjs.com/tags/v1.7.0/ember.js"></script>
+  <script src="http://builds.emberjs.com/canary/ember-data.js"></script>
+  <script src="app.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+  
+    <div id="side">
+      <img src="mikeandinez.jpg" alt="Mike and Inez" id="portrait">
+      I would just like to thank God for bringing Inez into my life.
+      With her my days are brighter. I feel that she is the last piece of the puzzle to my life.<br>
+      
+      <p>Our wedding will be held at 10:30 in the morning on November 9, 2014 at:<p>
+      <blockquote>The Potter's House Christian Church<br>3520 Mount Acadia Boulevard<br>San Diego, California</blockquote>
+      <p>We'd like to thank you in advance for your RSVP</p>
+      
+    </div>
+  
+    <div id="main">
+      <div id="wrap">
+        <img src="bow.png" id="bow">
+        <header>
+        <h1>RSVP for Mike and Inez</h1>
+        <span>Our wedding will be held on November 9, 2014.</span>
+        </header>
+        {{outlet}}
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    {{input value=first}}<br>
+    {{input value=last}}<br>
+    {{input value=email}}<br>
+    {{textarea value=note}}<br>
+    {{input value=guests}}<br>
+    {{view Ember.RadioButton}} 
+    {{view Ember.RadioButton}}
+    {{view Ember.RadioButton}} Regretfully, I will not be able to attend.
+    <button class="confirm">Confirm RSVP</button>
+  </script>
+
+</body>
+</html>
