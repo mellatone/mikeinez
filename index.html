@@ -8,48 +8,113 @@
   <script src="http://builds.emberjs.com/tags/v1.7.0/ember.js"></script>
   <script src="http://builds.emberjs.com/canary/ember-data.js"></script>
   <script src="app.js"></script>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Cinzel|Open+Sans:300,400' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <script type="text/x-handlebars">
-  
     <div id="side">
       <img src="mikeandinez.jpg" alt="Mike and Inez" id="portrait">
-      I would just like to thank God for bringing Inez into my life.
-      With her my days are brighter. I feel that she is the last piece of the puzzle to my life.<br>
-      
-      <p>Our wedding will be held at 10:30 in the morning on November 9, 2014 at:<p>
-      <blockquote>The Potter's House Christian Church<br>3520 Mount Acadia Boulevard<br>San Diego, California</blockquote>
-      <p>We'd like to thank you in advance for your RSVP</p>
-      
+      <div class="grid">
+        <div class="unit whole">
+          <p>I would just like to thank God for bringing Inez into my life.
+          With her my days are brighter. I feel that she is the last piece of the puzzle to my life.</p>
+          <p>Our wedding will be held at 10:30 in the morning on November 9, 2014 at:<p>
+          <blockquote>The Potter's House Christian Church<br>3520 Mount Acadia Boulevard<br>San Diego, California</blockquote>
+          <p>We'd like to thank you in advance for your RSVP</p>
+        </div>
+      </div>
     </div>
-  
     <div id="main">
       <div id="wrap">
-        <img src="bow.png" id="bow">
-        <header>
-        <h1>RSVP for Mike and Inez</h1>
-        <span>Our wedding will be held on November 9, 2014.</span>
-        </header>
+        <img src="bowww.png" id="bow">
         {{outlet}}
       </div>
     </div>
   </script>
-
   <script type="text/x-handlebars" data-template-name="index">
-    {{input value=first}}<br>
-    {{input value=last}}<br>
-    {{input value=email}}<br>
-    {{textarea value=note}}<br>
-    {{input value=guests}}<br>
-    {{view Ember.RadioButton}} 
-    {{view Ember.RadioButton}}
-    {{view Ember.RadioButton}} Regretfully, I will not be able to attend.
-    <button class="confirm">Confirm RSVP</button>
-  </script>
+    <div class="grid">
+      <div class="unit whole align-center">
+        <h1><span>Rsvp Requested</span> for the wedding of Inez Louise Cesena<br>to Michael Edmond Wolff.</h1>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="unit half">
+        <label>First name</label>{{input value=first}}
+      </div>
+      <div class="unit half">
+        <label>Last name</label>{{input value=last}}
+      </div>
+    </div>
+    <div class="grid">
+      <div class="unit whole">
+      <label>Email address (optional)</label>{{input value=email}}
+      </div>
+    </div>
+    <div class="grid">
+      <div class="unit whole" style="padding-bottom: 0">
+      <label>Will you be attending?</label>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="unit half">
+        <div {{bind-attr class=":option isAttending:selected"}} {{action "willAttend" true}}>
+          {{input type="checkbox" checked=isAttending class="css-checkbox"}} <label class="css-label"></label>Yes
+          <span>I will be attending on November 9th.</span>
+        </div>
+      </div>
+      <div class="unit half">
+        <div {{bind-attr class=":option isNotAttending:selected"}} {{action "willAttend" false}}>
+          {{input type="checkbox" checked=isNotAttending class="css-checkbox"}} <label class="css-label"></label>No
+          <span>Regretfully, I will not be able to attend.</span>
+        </div>
+      </div>
+    </div>
 
+    <div {{bind-attr class=":hidden isAttending:show"}}>
+    <div class="grid">
+      <div class="unit whole">
+      <label>Please confirm the number of guests</label>
+      </div>
+    </div>
+    <div class="grid align-center">
+      <div class="unit one-third">
+        {{input type="number" value=ceremonyOnly}}
+        <label>Ceremony<br>Only</label>
+      </div>
+      <div class="unit one-third">
+        {{input type="number" value=receptionOnly}}
+        <label>Reception<br>only</label>
+      </div>
+      <div class="unit one-third">
+        {{input type="number" value=ceremonyAndReception}}
+        <label>Ceremony <span>and Reception</span></label>
+      </div>
+    </div>
+    </div>
+
+    <div class="grid">
+      <div class="unit whole">
+        <label>Leave a note for Mike and Inez (optional)</label>{{textarea rows=4 value=note}}
+      </div>
+    </div>
+    <div class="grid">
+      <div class="unit whole align-center">
+        <button class="confirm" {{action sendConfirmation}}>Confirm RSVP</button>
+      </div>
+    </div>
+  </script>
+  <script type="text/x-handlebars" data-template-name="thanks">
+    <div class="grid">
+      <div class="unit whole align-center">
+        <h1><span>Thank you!</span></h1>
+        {{#if isAttending}}
+         We look forward to seeing you.
+        {{else}}
+         We're sorry that you won't be able to make it, but we look forward to catching up.
+        {{/if}}
+      </div>
+    </div>
+  </script>
 </body>
 </html>
